@@ -6,6 +6,8 @@ one:
   client_id: 1
   rate: MyString
   date: 2013-11-20
+  time: 2013-11-20 03:29:47
+  status: MyString
 
 two:
   title: MyString
@@ -13,3 +15,5 @@ two:
   client_id: 1
   rate: MyString
   date: 2013-11-20
+  time: 2013-11-20 03:29:47
+  status: MyString
