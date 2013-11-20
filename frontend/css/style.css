@@ -25,6 +25,8 @@ body {
 
 .dog-appt {
 	padding:10px;
+	overflow:hidden;
+	overflow-y:scroll;
 }
 
 .dashboard-modbox {
@@ -35,6 +37,7 @@ body {
 	padding:10px;
 	margin-top:10px;
 	transition:all 0.3s linear;
+	overflow:hidden;
 }
 
 .dashboard-modbox:hover {
@@ -45,7 +48,6 @@ body {
 
 .dashboard-appointments {
 	margin-top:20px;
-	overflow:hidden;
 }
 
 .dashboard-modbox-title {
@@ -74,5 +76,20 @@ body {
 
 .dashboard-dog-sizes li img {
 	vertical-align:bottom;
+}
+
+.dashboard-proposal-box {
+	padding:10px;
+	margin-top:-5px;
+	background-color:#FFF;
+	height:200px;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+	display:none;
+	overflow:hidden;
+}
+
+.dashboard-proposal-textarea {
+	min-height:120px;
 }
 
