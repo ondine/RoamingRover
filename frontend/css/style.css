@@ -1,0 +1,78 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+	font-family:"Open Sans", Arial;
+}
+
+.navbar-collapse {
+	margin-right:20px;
+}
+
+/*Dog Walker Dashboard*/
+
+.dog-map iframe {
+	width:100%;
+	border:none;
+}
+
+.dashboard-header {
+	font-size:1.7em;
+	color:#999;
+}
+
+.dog-appt {
+	padding:10px;
+}
+
+.dashboard-modbox {
+	background-color:#FFF;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	padding:10px;
+	margin-top:10px;
+	transition:all 0.3s linear;
+}
+
+.dashboard-modbox:hover {
+	background-color:#DDD;
+	transition:all 0.3s linear;
+	cursor:pointer;
+}
+
+.dashboard-appointments {
+	margin-top:20px;
+	overflow:hidden;
+}
+
+.dashboard-modbox-title {
+	font-weight:bold;
+	font-size:1.2em;
+}
+
+.dashboard-modbox-description {
+	margin-top:5px;
+}
+
+.dashboard-dog-sizes {
+	list-style-type:none;
+	padding:0;
+}
+
+.dashboard-dog-sizes li {
+	display:inline-block;
+	margin-left:10px;
+	padding-bottom:5px;
+}
+
+.dashboard-dog-sizes li.active {
+	border-bottom:#900 3px solid;
+}
+
+.dashboard-dog-sizes li img {
+	vertical-align:bottom;
+}
+
