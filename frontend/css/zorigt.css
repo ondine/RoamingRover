@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+
+.profile {
+	list-style-type: none;
+}
+
+.profile-form {
+	align: right;
+}
+
