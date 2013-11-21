@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+
+.txt-right {
+	text-align:right;
+}
+
+.txt-center {
+	text-align:center;
+}
+
+.no-pad {
+	padding:0;
+}
+
+.no-rad {
+	border-radius:0;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+}
+
+.padding-10 {
+	padding:10px;
+}
+
+.pad-right-5 {
+	padding-right:5px;
+}
+
+.pad-left-5 {
+	padding-left:5px;
+}
+
+.slight-gray {
+	background-color:#EBEBEB;
+}
+
+.margin-top-10 {
+	margin-top:10px;
+}
+
+.margin-top-20 {
+	margin-top:20px;
+}
+
+/*Mobile Fixes*/
+
+@media (max-width: 768px) {
+	.mobile-top-head {
+		margin-top:10px;
+	}
+}
+

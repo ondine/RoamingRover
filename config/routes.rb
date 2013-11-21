@@ -3,6 +3,12 @@ RoamingRover::Application.routes.draw do
   resources :activities
 
   root 'greeting#index'
+
+  get 'signup/' => 'signup#signup'
+
+  get 'signup/dw' => 'signup#dw_signup'
+
+  get 'signup/cl' => 'signup#cl_signup'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
