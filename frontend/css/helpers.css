@@ -5,8 +5,18 @@
 	text-align:right;
 }
 
+.txt-center {
+	text-align:center;
+}
+
 .no-pad {
 	padding:0;
+}
+
+.no-rad {
+	border-radius:0;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
 }
 
 .padding-10 {
@@ -27,6 +37,10 @@
 
 .margin-top-10 {
 	margin-top:10px;
+}
+
+.margin-top-20 {
+	margin-top:20px;
 }
 
 /*Mobile Fixes*/

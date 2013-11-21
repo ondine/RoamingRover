@@ -27,3 +27,10 @@ $(".dashboard-proposal-submit").click(function() {
 	var propId = $(this).parents().parents().parents().parents().attr("id");
 	$("#" + propId).slideUp();
 });
+
+/*Change active status for signup dogsize*/
+
+$(".signup-dogsize li").click(function() {
+	$(".signup-dogsize li").removeClass("active");
+	$(this).addClass("active");
+});
