@@ -1,6 +1,10 @@
 class SignupController < ApplicationController
 	def select
-		render 'dw_signup'
+		if session[:type] == 1
+			render 'cl_signup'
+		elsif session[:type] == 2
+			render 'dw_signup'
+		end
 	end
 
 	def signup1
