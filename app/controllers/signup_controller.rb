@@ -4,10 +4,9 @@ class SignupController < ApplicationController
 	end
 
 	def signup1
-		new_user = User.new
-		new_user.name = params[:first_name] + " " + params[:last_name]
-		new_user.email = params[:email_address]
-		new_user.save
+		session[:signup_first_name] = params[:first_name]
+		session[:signup_last_name] = params[:last_name]
+		session[:signup_email_address] = params[:email_address]
 
 		redirect_to '/signup/2'
 	end
