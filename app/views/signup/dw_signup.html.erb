@@ -25,6 +25,7 @@
 
 <div class="container">
 	<div class="signup-container">
+        <%= form_tag do %>
         <div class="signup-header">
             Complete Your Account
         </div>
@@ -35,19 +36,19 @@
         	Your Address
         </div>
         <div class="margin-top-10">
-        	<input class="form-control" type="text" placeholder="Address" />
+        	<input name="address" class="form-control" type="text" placeholder="Address" />
         </div>
         <div class="signup-field-headers">
         	Phone Number
         </div>
         <div class="margin-top-10">
-        	<input class="form-control" type="tel" placeholder="Phone Number" />
+        	<input name="phone_number" class="form-control" type="tel" placeholder="Phone Number" />
         </div>
         <div class="signup-field-headers">
         	Breeds Handled
         </div>
         <div class="margin-top-10">
-        	<input class="form-control" type="text" placeholder="Phone Number" />
+        	<input name="breeds" class="form-control" type="text" placeholder="Breeds Handled" />
         </div>
         <div class="row">
         	<div class="col-sm-6">
@@ -55,7 +56,7 @@
                     Years of Experience
                 </div>
                 <div class="margin-top-10">
-                    <input class="form-control" type="text" placeholder="Years of Experience" />
+                    <input name="years_exp" class="form-control" type="text" placeholder="Years of Experience" />
                 </div>
             </div>
             <div class="col-sm-6">
@@ -63,7 +64,7 @@
                     Your Rate
                 </div>
                 <div class="margin-top-10">
-                    <input class="form-control" type="text" placeholder="Rate" />
+                    <input name="rate" class="form-control" type="text" placeholder="Rate" />
                 </div>
             </div>
         </div>
@@ -71,11 +72,12 @@
         	Your Availability
         </div>
         <div class="margin-top-10">
-        	<input class="form-control" type="tel" placeholder="General Availability" />
+        	<input name="avail" class="form-control" type="text" placeholder="General Availability" />
         </div>
         <div class="margin-top-20 txt-center">
-        	<a href="#" class="btn btn-primary">Sign Up</a>
+        	<button type="submit" class="btn btn-primary">Sign Up</button>
         </div>
+        <% end %>
     </div>
 </div>
 

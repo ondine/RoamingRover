@@ -25,6 +25,7 @@
 
 <div class="container">
 	<div class="signup-container">
+        <%= form_tag do %>
         <div class="signup-header">
             Complete Your Account
         </div>
@@ -35,34 +36,36 @@
         	Your Address
         </div>
         <div class="margin-top-10">
-        	<input class="form-control" type="text" placeholder="Address" />
+        	<input name="address" class="form-control" type="text" placeholder="Address" />
         </div>
         <div class="signup-field-headers">
         	Phone Number
         </div>
         <div class="margin-top-10">
-        	<input class="form-control" type="tel" placeholder="Phone Number" />
+        	<input name="phone_number" class="form-control" type="tel" placeholder="Phone Number" />
         </div>
         <div class="signup-field-headers">
         	Your Dog's Size
         </div>
         <div class="margin-top-10">
         	<ul class="dog-sizes-list signup-dogsize">
-            	<li><img src="/assets/dogs/dog-icon.png" width="30px" /></li>
-                <li><img src="/assets/dogs/dog-icon.png" width="40px" /></li>
-                <li><img src="/assets/dogs/dog-icon.png" width="50px" /></li>
-                <li><img src="/assets/dogs/dog-icon.png" width="60px" /></li>
+            	<li><img data-size="1" src="/assets/dogs/dog-icon.png" width="30px" /></li>
+                <li><img data-size="2" src="/assets/dogs/dog-icon.png" width="40px" /></li>
+                <li><img data-size="3" src="/assets/dogs/dog-icon.png" width="50px" /></li>
+                <li><img data-size="4" src="/assets/dogs/dog-icon.png" width="60px" /></li>
             </ul>
         </div>
         <div class="signup-field-headers">
         	Your Availability
         </div>
         <div class="margin-top-10">
-        	<input class="form-control" type="tel" placeholder="General Availability" />
+        	<input name="avail" class="form-control" type="text" placeholder="General Availability" />
         </div>
         <div class="margin-top-20 txt-center">
-        	<a href="#" class="btn btn-primary">Sign Up</a>
+        	<button type="submit" class="btn btn-primary">Sign Up</button>
         </div>
+        <input type="hidden" id="dog-size" name="dogsize" value="" />
+        <% end %>
     </div>
 </div>
 

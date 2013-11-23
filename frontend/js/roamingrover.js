@@ -34,3 +34,19 @@ $(".signup-dogsize li").click(function() {
 	$(".signup-dogsize li").removeClass("active");
 	$(this).addClass("active");
 });
+
+/*Post user type to rails*/
+
+$(".signup-type-image img").click(function() {
+	userType = $(this).attr("data-type");
+	$.post("signup/set/user_type/", { signupType: userType }, function() {
+		window.location = "signup/2/";
+	});
+});
+
+/*Set dog size hidden field*/
+
+$(".signup-dogsize img").click(function() {
+	dogSize = $(this).attr("data-size");
+	document.getElementById("dog-size").value = dogSize;
+});
