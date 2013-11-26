@@ -7,12 +7,10 @@ RoamingRover::Application.routes.draw do
 
   #Render first signup process
   get 'signup/' => 'signup#signup_type'
-  
-  #Post signup data from first page
-  post 'signup/2' => 'signup#signup2'
 
   #Send over to second part of the signup process
   get 'signup/2' => 'signup#signup'
+  post 'signup/2' => 'signup#signup2'
 
   #Finish signup
   get 'signup/3' => 'signup#select'
@@ -20,10 +18,18 @@ RoamingRover::Application.routes.draw do
 
   #Select the right dashboard based on user type
   get 'dashboard/' => 'dashboard#select'
+  post 'dashboard/' => 'dashboard#save_request'
 
   #Post for setting session for user type on signup
   post 'signup/set/user_type/' => 'signup#set_user_type'
 
   #Reset session on command
   get 'reset/' => 'reset#reset_session'
+
+  #Process login
+  get 'login/' => 'login#read'
+  post 'login/' => 'login#write'
+
+  #Process logout
+  get 'logout/' => 'login#logout'
 end
