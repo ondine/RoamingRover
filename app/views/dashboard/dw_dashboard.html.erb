@@ -51,10 +51,15 @@
             <!--Dashboard Appointments-->
             <div class="dashboard-appointments">
             	
-                <% @dog_listings.each do |listing| %>
+                <% @dog_listings.each do |listing|
+
+                    given_size = Client.where(user_id: listing.client_id).first.dogsize
+                    client_info = User.where(id: listing.client_id).first
+
+                %>
 
                 <!--Dashboard Appointment-->
-                <div id="appointment1234" class="dashboard-modbox">
+                <div id="appointment<%= listing.id %>" class="dashboard-modbox">
                 	<div class="row">
                     	<div class="col-sm-8">
                         	<div class="dashboard-modbox-title">
@@ -75,10 +80,10 @@
                             </div>
                             <div class="margin-top-10">
                             	<ul class="dog-sizes-list">
-                                	<li><img src="/assets/dogs/dog-icon.png" width="30px" /></li>
-                                    <li><img src="/assets/dogs/dog-icon.png" width="40px" /></li>
-                                    <li><img src="/assets/dogs/dog-icon.png" width="50px" /></li>
-                                    <li><img src="/assets/dogs/dog-icon.png" width="60px" /></li>
+                                	<li class="<%= 'active' if given_size == 1 %>"><img src="/assets/dogs/dog-icon.png" width="30px" /></li>
+                                    <li class="<%= 'active' if given_size == 2 %>"><img src="/assets/dogs/dog-icon.png" width="40px" /></li>
+                                    <li class="<%= 'active' if given_size == 3 %>"><img src="/assets/dogs/dog-icon.png" width="50px" /></li>
+                                    <li class="<%= 'active' if given_size == 4 %>"><img src="/assets/dogs/dog-icon.png" width="60px" /></li>
                                 </ul>
                             </div>
                         </div>
@@ -88,11 +93,11 @@
                             </div>
                             <div class="row margin-top-10">
                             	<div class="col-sm-3">
-                                	<img src="/assets/sample.jpg" class="img-responsive" />
+                                	<img src="/assets/avatar.png" class="img-responsive" />
                                 </div>
                                 <div class="col-sm-9">
                                 	<div>
-                                    	<strong>Mary</strong>
+                                    	<strong><%= client_info.first_name %></strong>
                                     </div>
                                     <div>
                                     	<small>Requested on November 19, 2013 at 10:00 am</small>
@@ -104,7 +109,7 @@
                 </div>
                 <!--/Dashboard Appointment-->
                 <!--Appointment Proposal-->
-                <div id="proposal1234" class="dashboard-proposal-box">
+                <div id="proposal<%= listing.id %>" class="dashboard-proposal-box">
                 	<div>
                     	<strong>Submit Proposal</strong>
                     </div>

@@ -27,7 +27,7 @@ class DashboardController < ApplicationController
 		#Save it
 		new_request.save
 
-		render :text => "yay"
+		render 'cl_dashboard'
 	end
 
 	#Get dog walker custom data
@@ -35,6 +35,6 @@ class DashboardController < ApplicationController
 	def pull_dw_info
 		@dw_zip = User.where(email: session[:email_address]).first.zipcode
 
-		@dog_listings = Activity.find(:all)
+		@dog_listings = Activity.all
 	end
 end
