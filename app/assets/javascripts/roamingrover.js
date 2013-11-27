@@ -38,13 +38,18 @@ $(".dashboard-proposal-submit").click(function() {
 	//AJAX :) It's beautiful
 	
 	$.post("dashboard/proposal/", { proposalId: propId[1], proposalDesc: proposalDescription, sharePhone: proposalPhoneShare }, function() {
-		$("#proposal-success").slideDown();
 		$("#" + propIdFull).slideUp(function() {
 			$("#appointment" + propId[1]).fadeOut();
 			
+			//Show our nifty alert which is really nested in callbacks :P:P
+			
 			setTimeout(function() {
-				$("#proposal-success").slideUp();
-			}, 4000);
+				$("#proposal-success").slideDown(function() {
+					setTimeout(function() {
+						$("#proposal-success").slideUp();
+					}, 3000);
+				});
+			}, 1000);
 		});		
 	});
 });

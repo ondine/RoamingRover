@@ -8,6 +8,8 @@ class LoginController < ApplicationController
 		if auth_user == nil
 			render 'login'
 		else
+			#Set up our session variables
+
 			session[:email_address] = auth_user.email
 			session[:user_type] = auth_user.user_type
 			session[:user_id] = auth_user.id

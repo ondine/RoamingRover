@@ -58,13 +58,19 @@
             	<% proposal_bids = Array.new %>
                 <% @dog_listings.each do |listing|
 
+                    #Push bid id to proposal_bids array
+
                     WalkerBids.where(walker_id: session[:user_id]).each do |proposed|
                         proposal_bids << proposed.bid_id
                     end
 
+                    #Stop processing the loop if this listing ID exists in our proposal_bids array
+
                     if proposal_bids.include?(listing.id)
                         next
                     end
+
+                    #Set up our information for use downstream
 
                     given_size = Client.where(user_id: listing.client_id).first.dogsize
                     client_info = User.where(id: listing.client_id).first
