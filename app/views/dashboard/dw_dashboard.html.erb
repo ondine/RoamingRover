@@ -28,6 +28,11 @@
     	<iframe src="https://mapsengine.google.com/map/u/0/embed?mid=zvcuIbUDXZrc.kGGRAIPfiwfU"></iframe>
     </div>
     <div class="col-sm-6 mobile-top-head">
+
+        <div id="proposal-success" class="alert alert-success">
+            Your proposal was successfully submitted!
+        </div>
+
     	<div class="slight-gray dog-appt">
         	<!--Dashboard Header-->
             <div class="row">
@@ -50,8 +55,16 @@
             <!--/Dashboard Header-->
             <!--Dashboard Appointments-->
             <div class="dashboard-appointments">
-            	
+            	<% proposal_bids = Array.new %>
                 <% @dog_listings.each do |listing|
+
+                    WalkerBids.where(walker_id: session[:user_id]).each do |proposed|
+                        proposal_bids << proposed.bid_id
+                    end
+
+                    if proposal_bids.include?(listing.id)
+                        next
+                    end
 
                     given_size = Client.where(user_id: listing.client_id).first.dogsize
                     client_info = User.where(id: listing.client_id).first
@@ -115,20 +128,20 @@
                     </div>
                     <div class="row margin-top-10">
                     	<div class="col-sm-8">
-                        	<textarea class="form-control dashboard-proposal-textarea" placeholder="Use this area to tell your client a little about your abilities and experience."></textarea>
+                        	<textarea name="proposal_description" class="form-control dashboard-proposal-textarea" placeholder="Use this area to tell your client a little about your abilities and experience."></textarea>
                         </div>
                         <div class="col-sm-4">
                         	<div class="mobile-top-head">
-                            	<input type="text" class="form-control" placeholder="Rate Requested" />
+                            	<input name="proposal_rate" type="text" class="form-control" placeholder="Rate Requested" />
                             </div>
                             <div class="checkbox">
                                 <label>
-                                	<input type="checkbox" value="">
+                                	<input name="proposal_share" type="checkbox">
                                 	Share phone number?
                                 </label>
                             </div>
                             <div class="margin-top-10">
-                            	<a href="#" class="btn btn-primary dashboard-proposal-submit">Submit</a>
+                            	<button type="button" href="#" class="btn btn-primary dashboard-proposal-submit">Submit</button>
                             </div>
                         </div>
                     </div>

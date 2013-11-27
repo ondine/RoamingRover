@@ -19,6 +19,7 @@ RoamingRover::Application.routes.draw do
   #Select the right dashboard based on user type
   get 'dashboard/' => 'dashboard#select'
   post 'dashboard/' => 'dashboard#save_request'
+  post 'dashboard/proposal/' => 'dashboard#send_proposal'
 
   #Post for setting session for user type on signup
   post 'signup/set/user_type/' => 'signup#set_user_type'

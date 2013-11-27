@@ -13,6 +13,10 @@ body {
 
 /*Dog Walker Dashboard*/
 
+#proposal-success {
+	display:none;
+}
+
 .dog-map iframe {
 	width:100%;
 	border:none;

@@ -37,4 +37,19 @@ class DashboardController < ApplicationController
 
 		@dog_listings = Activity.all
 	end
+
+	def send_proposal
+		#Save the proposal on AJAX request
+
+		new_prop = WalkerBids.new
+
+		new_prop.walker_id = session[:user_id]
+		new_prop.bid_id = params[:proposalId]
+
+		#Save it up
+
+		new_prop.save
+
+		render :text => "ok"
+	end
 end

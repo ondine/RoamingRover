@@ -10,6 +10,7 @@ class LoginController < ApplicationController
 		else
 			session[:email_address] = auth_user.email
 			session[:user_type] = auth_user.user_type
+			session[:user_id] = auth_user.id
 			session[:login] = true
 			redirect_to '/dashboard'
 		end

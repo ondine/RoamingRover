@@ -1,3 +1,5 @@
+/*Resize dogmap on screen change*/
+
 $(document).ready(function() {
 	resizeDogmap();
 });
@@ -22,10 +24,29 @@ $(".dashboard-modbox").click(function() {
 /*Submit proposal and close form*/
 
 $(".dashboard-proposal-submit").click(function() {
-	//AJAX here
+	var propIdFull = $(this).parents().parents().parents().parents().attr("id");
+	var propId = propIdFull.split("proposal");
+	var proposalDescription = $(this).parents().find("textarea[name=proposal_description]").val();
+	var proposalRate = $(this).parents().find("input[name=proposal_rate]").val();
 	
-	var propId = $(this).parents().parents().parents().parents().attr("id");
-	$("#" + propId).slideUp();
+	if ($(this).parents().find("input[name=proposal_share]").is(":checked")) {
+		var proposalPhoneShare = "yes";
+	} else {
+		var proposalPhoneShare = "no";
+	}
+	
+	//AJAX :) It's beautiful
+	
+	$.post("dashboard/proposal/", { proposalId: propId[1], proposalDesc: proposalDescription, sharePhone: proposalPhoneShare }, function() {
+		$("#proposal-success").slideDown();
+		$("#" + propIdFull).slideUp(function() {
+			$("#appointment" + propId[1]).fadeOut();
+			
+			setTimeout(function() {
+				$("#proposal-success").slideUp();
+			}, 4000);
+		});		
+	});
 });
 
 /*Change active status for signup dogsize*/
