@@ -80,10 +80,10 @@
                             </div>
                             <div class="margin-top-10">
                             	<ul class="dog-sizes-list">
-                                	<li class="<%= 'active' if given_size == 1 %>"><img src="/assets/dogs/dog-icon.png" width="30px" /></li>
-                                    <li class="<%= 'active' if given_size == 2 %>"><img src="/assets/dogs/dog-icon.png" width="40px" /></li>
-                                    <li class="<%= 'active' if given_size == 3 %>"><img src="/assets/dogs/dog-icon.png" width="50px" /></li>
-                                    <li class="<%= 'active' if given_size == 4 %>"><img src="/assets/dogs/dog-icon.png" width="60px" /></li>
+                                	<li <%= if given_size == "1" then "class=active" end %>><img src="/assets/dogs/dog-icon.png" width="30px" /></li>
+                                    <li <%= if given_size == "2" then "class=active" end %>><img src="/assets/dogs/dog-icon.png" width="40px" /></li>
+                                    <li <%= if given_size == "3" then "class=active" end %>><img src="/assets/dogs/dog-icon.png" width="50px" /></li>
+                                    <li <%= if given_size == "4" then "class=active" end %>><img src="/assets/dogs/dog-icon.png" width="60px" /></li>
                                 </ul>
                             </div>
                         </div>
