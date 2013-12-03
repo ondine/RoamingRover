@@ -17,11 +17,6 @@ body {
 	display:none;
 }
 
-.dog-map iframe {
-	width:100%;
-	border:none;
-}
-
 .dashboard-header {
 	font-size:1.7em;
 	color:#999;

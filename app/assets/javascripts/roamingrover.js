@@ -9,7 +9,7 @@ $(window).resize(function() {
 });
 
 function resizeDogmap() {
-	$(".dog-map iframe").css("height", ($(window).height() - 80));
+	$(".dog-map:first-child").css("height", ($(window).height() - 80));
 	$(".dog-appt").css("height", ($(window).height() - 80));
 }
 

@@ -33,4 +33,7 @@ RoamingRover::Application.routes.draw do
 
   #Process logout
   get 'logout/' => 'login#logout'
+
+  #Get google map
+  get 'getmap/' => 'gmaps#get_adds'
 end
