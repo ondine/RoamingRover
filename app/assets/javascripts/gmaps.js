@@ -1,7 +1,17 @@
 $(document).ready(function() {
+	
+	locations2 = new Array();
+	
 	$.get("/getmap/", function(data) {
-		var mapData = data[3];
-		console.log(mapData);
+		$.each(data, function(k, v) {
+			var googleAddress = encodeURIComponent(v);
+			$.get("http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=" + googleAddress, function(data) {
+				var latitude = data['results'][0]['geometry']['location']['lat'];
+				var longitude = data['results'][0]['geometry']['location']['lng'];
+				
+				locations2.push([k, latitude, longitude]);
+			});
+		});
 	});
 	
 	var locations = [
