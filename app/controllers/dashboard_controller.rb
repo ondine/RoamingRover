@@ -50,6 +50,28 @@ class DashboardController < ApplicationController
 
 		new_prop.save
 
+		#Get client ID
+
+		client_id_listed = Activity.where(id: params[:proposalId]).first.client_id
+
+		#Set up walker information provided in email
+
+		given_name = session[:first_name] + " " + session[:last_name]
+
+		if params[:sharePhone] == "yes"
+			walker_phone = session[:phone_number]
+		else
+			walker_phone = "No number provided"
+		end
+
+		walker_email = session[:email_address]
+
+		#Send out email
+
+		UserMailer.proposal_email(User.where(id: client_id_listed).first, params[:propRate], params[:proposalDesc], given_name, walker_phone, walker_email).deliver
+
+		#Send back AJAX response
+
 		render :text => "ok"
 	end
 end

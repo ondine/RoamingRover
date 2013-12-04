@@ -13,6 +13,9 @@ class LoginController < ApplicationController
 			session[:email_address] = auth_user.email
 			session[:user_type] = auth_user.user_type
 			session[:user_id] = auth_user.id
+			session[:first_name] = auth_user.first_name
+			session[:last_name] = auth_user.last_name
+			session[:phone_number] = auth_user.phone
 			session[:login] = true
 			redirect_to '/dashboard'
 		end

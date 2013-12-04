@@ -37,7 +37,7 @@ $(".dashboard-proposal-submit").click(function() {
 	
 	//AJAX :) It's beautiful
 	
-	$.post("dashboard/proposal/", { proposalId: propId[1], proposalDesc: proposalDescription, sharePhone: proposalPhoneShare }, function() {
+	$.post("dashboard/proposal/", { proposalId: propId[1], proposalDesc: proposalDescription, propRate: proposalRate, sharePhone: proposalPhoneShare }, function() {
 		$("#" + propIdFull).slideUp(function() {
 			$("#appointment" + propId[1]).fadeOut();
 			

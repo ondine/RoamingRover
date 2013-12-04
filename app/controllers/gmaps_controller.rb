@@ -3,12 +3,18 @@ class GmapsController < ApplicationController
 		#Pull from activity model and push into array
 
 		activities = Activity.all
-		client_addresses = Array.new
+		client_addresses = Hash.new
+
+		#Loop through all activities to merge addresses into hash
 
 		activities.each do |active|
 			client_info = User.find(active.client_id)
-			client_addresses << client_info.address
+			client_addresses.merge!({active.client_id => client_info.address})
 		end
 
+		#Render out the JSON response
+
+		addresses_response = client_addresses.as_json
+		render :json => addresses_response
 	end
 end
