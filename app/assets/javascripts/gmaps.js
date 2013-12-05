@@ -27,6 +27,9 @@ $(document).ready(function() {
 	//Need to get and use zipcode to center the map
 	
 	var dwZipcode = document.getElementById("dw-zip").value;
+	
+	//One more geocode to get zipcode location
+	
 	$.get("http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=" + dwZipcode, function(data) {
 		var zip_latitude = data['results'][0]['geometry']['location']['lat'];
 		var zip_longitude = data['results'][0]['geometry']['location']['lng'];
@@ -34,7 +37,7 @@ $(document).ready(function() {
 		//Render map using zipcode coordinates as center
 		
 		var map = new google.maps.Map(document.getElementById('dw-map'), {
-			zoom: 5,
+			zoom: 8,
 			center: new google.maps.LatLng(zip_latitude, zip_longitude),
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		});
@@ -57,9 +60,16 @@ $(document).ready(function() {
 			return function() {
 				infowindow.setContent("<h3>" + locations[i][1] + "</h3>" + locations[i][2]);
 				infowindow.open(map, marker);
+				$(".dashboard-modbox").css("background-color", "#FFF");
+				$("#appointment" + locations[i][0]).css("background-color", "#dde7ff");
 			}
 			})(marker, i));
 		}
 		
+		//Clear out all blue color on close of the infowindow
+		
+		google.maps.event.addListener(infowindow,'closeclick',function(){
+			$(".dashboard-modbox").css("background-color", "#FFF");
+		});
 	});	
 });

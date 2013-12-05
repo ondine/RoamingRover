@@ -21,6 +21,22 @@ $(".dashboard-modbox").click(function() {
 	$("#proposal" + apptId[1]).slideToggle();
 });
 
+/*Change color on hover states*/
+
+$(".dashboard-modbox").hover(function() {
+	if ($(this).css("background-color") == "rgb(255, 255, 255)") {
+		$(this).css("background-color", "#DDD");
+	} else {
+		return;
+	}
+}, function() {
+	if ($(this).css("background-color") == "rgb(221, 221, 221)") {
+		$(this).css("background-color", "#FFF");
+	} else {
+		return;
+	}
+});
+
 /*Submit proposal and close form*/
 
 $(".dashboard-proposal-submit").click(function() {
