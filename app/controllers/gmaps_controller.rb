@@ -9,7 +9,7 @@ class GmapsController < ApplicationController
 
 		activities.each do |active|
 			client_info = User.find(active.client_id)
-			client_addresses.merge!({active.client_id => client_info.address})
+			client_addresses.merge!({active.client_id => [client_info.address, client_info.first_name + " " + client_info.last_name, active.description]})
 		end
 
 		#Render out the JSON response

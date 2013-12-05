@@ -1,48 +1,65 @@
 $(document).ready(function() {
 	
-	locations2 = new Array();
+	var locations = new Array();
 	
 	$.get("/getmap/", function(data) {
+		//Loop through array and geocode every address with the GOOG
+		
 		$.each(data, function(k, v) {
-			var googleAddress = encodeURIComponent(v);
-			$.get("http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=" + googleAddress, function(data) {
-				var latitude = data['results'][0]['geometry']['location']['lat'];
-				var longitude = data['results'][0]['geometry']['location']['lng'];
+			var googleAddress = encodeURIComponent(v[0]);
+			
+			//Turn off async because you used up all your success callbacks! x_x
+			
+			$.ajax({
+				type: "GET",
+				url: "http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=" + googleAddress,
+				async: false,
+				success: function(data) {
+					var latitude = data['results'][0]['geometry']['location']['lat'];
+					var longitude = data['results'][0]['geometry']['location']['lng'];
 				
-				locations2.push([k, latitude, longitude]);
+					locations.push([k, v[1], v[2], latitude, longitude]);
+				}
 			});
 		});
 	});
 	
-	var locations = [
-		['<h3>Jane Doe</h3>I need some help.<br>(805) 338-1903', -33.890542, 151.274856, 4],
-		['Coogee Beach', -33.923036, 151.259052, 5],
-		['Cronulla Beach', -34.028249, 151.157507, 3],
-		['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-		['Maroubra Beach', -33.950198, 151.259302, 1]
-	];
+	//Need to get and use zipcode to center the map
 	
-	var map = new google.maps.Map(document.getElementById('dw-map'), {
-		zoom: 10,
-		center: new google.maps.LatLng(-33.92, 151.25),
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-	});
-	
-	var infowindow = new google.maps.InfoWindow();
-	
-	var marker, i;
-	
-	for (i = 0; i < locations.length; i++) {  
-		marker = new google.maps.Marker({
-			position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-			map: map
-	});
-	
-	google.maps.event.addListener(marker, 'click', (function(marker, i) {
-		return function() {
-			infowindow.setContent(locations[i][0]);
-			infowindow.open(map, marker);
+	var dwZipcode = document.getElementById("dw-zip").value;
+	$.get("http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=" + dwZipcode, function(data) {
+		var zip_latitude = data['results'][0]['geometry']['location']['lat'];
+		var zip_longitude = data['results'][0]['geometry']['location']['lng'];
+		
+		//Render map using zipcode coordinates as center
+		
+		var map = new google.maps.Map(document.getElementById('dw-map'), {
+			zoom: 5,
+			center: new google.maps.LatLng(zip_latitude, zip_longitude),
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		});
+		
+		var infowindow = new google.maps.InfoWindow();
+		
+		var marker, i;
+		
+		//Loop through locations array and place markers on the map
+		
+		for (i = 0; i < locations.length; i++) {  
+			marker = new google.maps.Marker({
+				position: new google.maps.LatLng(locations[i][3], locations[i][4]),
+				map: map
+		});
+		
+		//Set up click listener on each marker and toggle HTML content when clicked
+		
+		google.maps.event.addListener(marker, 'click', (function(marker, i) {
+			return function() {
+				infowindow.setContent("<h3>" + locations[i][1] + "</h3>" + locations[i][2]);
+				infowindow.open(map, marker);
+			}
+			})(marker, i));
 		}
-		})(marker, i));
-	}
+		
+	});	
 });
