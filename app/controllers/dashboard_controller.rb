@@ -35,7 +35,7 @@ class DashboardController < ApplicationController
 	def pull_dw_info
 		@dw_zip = User.where(email: session[:email_address]).first.zipcode
 
-		@dog_listings = Activity.all
+		@dog_listings = Activity.all.order(created_at: :desc)
 	end
 
 	def send_proposal
