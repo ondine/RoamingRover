@@ -40,6 +40,7 @@ body {
 }
 
 .dashboard-modbox:hover {
+	background-color:#DDD;
 	transition:all 0.3s linear;
 	cursor:pointer;
 }

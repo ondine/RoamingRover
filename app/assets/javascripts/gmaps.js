@@ -69,7 +69,7 @@ $(document).ready(function() {
 		//Clear out all blue color on close of the infowindow
 		
 		google.maps.event.addListener(infowindow,'closeclick',function(){
-			$(".dashboard-modbox").css("background-color", "#FFF");
+			$(".dashboard-modbox").attr("style", "");
 		});
 	});	
 });

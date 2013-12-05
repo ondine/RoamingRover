@@ -23,7 +23,7 @@ $(".dashboard-modbox").click(function() {
 
 /*Change color on hover states*/
 
-$(".dashboard-modbox").hover(function() {
+/*$(".dashboard-modbox").hover(function() {
 	if ($(this).css("background-color") == "rgb(255, 255, 255)") {
 		$(this).css("background-color", "#DDD");
 	} else {
@@ -35,7 +35,7 @@ $(".dashboard-modbox").hover(function() {
 	} else {
 		return;
 	}
-});
+});*/
 
 /*Submit proposal and close form*/
 
