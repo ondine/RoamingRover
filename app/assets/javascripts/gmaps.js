@@ -37,7 +37,7 @@ $(document).ready(function() {
 		//Render map using zipcode coordinates as center
 		
 		var map = new google.maps.Map(document.getElementById('dw-map'), {
-			zoom: 8,
+			zoom: 12,
 			center: new google.maps.LatLng(zip_latitude, zip_longitude),
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		});
