@@ -5,6 +5,9 @@ RoamingRover::Application.routes.draw do
   #Render homepage
   root 'greeting#index'
 
+  #Ensure you have defined root_url to *something* in your config/routes.rb.
+  #For example: root :to => "home#index"
+
   #Render first signup process
   get 'signup/' => 'signup#signup_type'
 

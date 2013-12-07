@@ -6,6 +6,14 @@
   <%= csrf_meta_tags %>
 </head>
 
+<!--Adding Devise Authentication (http://guides.railsgirls.com/devise/)-->
+<% if notice %>
+  <p class="alert alert-notice"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-error"><%= alert %></p>
+<% end %>
+
 <%= yield %>
 
 </html>
