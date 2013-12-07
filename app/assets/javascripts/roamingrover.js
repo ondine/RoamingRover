@@ -26,10 +26,11 @@ $(".dashboard-modbox").click(function() {
 $(".dashboard-proposal-submit").click(function() {
 	var propIdFull = $(this).parents().parents().parents().parents().attr("id");
 	var propId = propIdFull.split("proposal");
-	var proposalDescription = $(this).parents().find("textarea[name=proposal_description]").val();
-	var proposalRate = $(this).parents().find("input[name=proposal_rate]").val();
+	var proposalDescription = $("#proposal" + propId[1]).find("textarea[name=proposal_description]").val();
+
+	var proposalRate = $("#proposal" + propId[1]).find("input[name=proposal_rate]").val();
 	
-	if ($(this).parents().find("input[name=proposal_share]").is(":checked")) {
+	if ($("#proposal" + propId[1]).find("input[name=proposal_share]").is(":checked")) {
 		var proposalPhoneShare = "yes";
 	} else {
 		var proposalPhoneShare = "no";
