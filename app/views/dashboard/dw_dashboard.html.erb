@@ -118,7 +118,7 @@
                                     	<strong><%= client_info.first_name %></strong>
                                     </div>
                                     <div>
-                                    	<small>Requested on November 19, 2013 at 10:00 am</small>
+                                    	<small>Requested on <%= (listing.created_at).to_formatted_s(:long_ordinal) %></small>
                                     </div>
                                 </div>
                             </div>
