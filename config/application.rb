@@ -21,5 +21,9 @@ module RoamingRover
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    # Finally, if you plan to deploy to heroku you should open up config/application.rb and add this line:
+    # hope this works for git as well...- ondine
+    config.assets.initialize_on_precompile = false
   end
 end
