@@ -17,7 +17,7 @@ RoamingRover::Application.routes.draw do
   post 'signup/3' => 'signup#signup3'
 
   #Select the right dashboard based on user type
-  get 'dashboard/' => 'dashboard#select'
+  get 'dashboard/:zip' => 'dashboard#select'
   post 'dashboard/' => 'dashboard#save_request'
   post 'dashboard/proposal/' => 'dashboard#send_proposal'
 

@@ -18,7 +18,7 @@ class LoginController < ApplicationController
 			session[:phone_number] = auth_user.phone
 			session[:zip_code] = auth_user.zipcode
 			session[:login] = true
-			redirect_to '/dashboard'
+			redirect_to '/dashboard/' + session[:zip_code].to_s
 		end
 	end
 
