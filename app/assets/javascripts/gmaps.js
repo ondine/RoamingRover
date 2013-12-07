@@ -24,6 +24,8 @@ $(document).ready(function() {
 		});
 	});
 	
+	function doMap() {
+	
 	//Need to get and use zipcode to center the map
 	
 	var dwZipcode = document.getElementById("dw-zip").value;
@@ -71,5 +73,23 @@ $(document).ready(function() {
 		google.maps.event.addListener(infowindow,'closeclick',function(){
 			$(".dashboard-modbox").attr("style", "");
 		});
-	});	
+	});
+	
+	} //End function doMap()
+	
+	//Call it
+	
+	doMap();
+	
+	//Change map position when change zip is clicked
+	
+	$("#change-zip").click(function() {
+		doMap();
+	});
+	
+	$("#dw-zip").keypress(function(e) {
+        if (e.which == 13) {
+			doMap();
+		}
+    });
 });
