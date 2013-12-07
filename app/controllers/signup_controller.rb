@@ -76,6 +76,6 @@ class SignupController < ApplicationController
 		end
 
 		#Redirect out
-		redirect_to '/dashboard/'
+		redirect_to '/login/'
 	end
 end
