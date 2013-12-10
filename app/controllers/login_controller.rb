@@ -1,11 +1,20 @@
+require 'bcrypt'
+
 class LoginController < ApplicationController
+	include BCrypt
+
 	def read
 		render 'login'
 	end
 
 	def write
-		auth_user = User.where(email: params[:login_email]).where(password: params[:login_password]).first
-		if auth_user == nil
+		#Get user by email
+
+		auth_user = User.find_by_email(params[:login_email])
+
+		#Generate password based on given parameters
+
+		if auth_user == nil ||  BCrypt::Password.new(auth_user.password) != params[:login_password]
 			render 'login'
 		else
 			#Set up our session variables

@@ -1,5 +1,11 @@
+require 'bcrypt'
+
 class SignupController < ApplicationController
+	include BCrypt
+
 	def select
+		#Select which signup page to show based on type
+
 		if session[:user_type] == "client"
 			render 'cl_signup'
 		elsif session[:user_type] == "walker"
@@ -41,12 +47,17 @@ class SignupController < ApplicationController
 		new_user.user_type = session[:user_type]
 		new_user.first_name = session[:signup_first_name]
 		new_user.last_name = session[:signup_last_name]
-		new_user.password = session[:signup_password]
 		new_user.email = session[:signup_email_address]
 		new_user.phone = session[:signup_phone]
 		new_user.address = session[:signup_address]
 		new_user.zipcode = session[:signup_zip_code]
 		new_user.availability = session[:signup_avail]
+
+		#Generate secure password
+
+		new_password = BCrypt::Password.create(session[:signup_password])
+
+		new_user.password = new_password
 
 		#Save it up!
 		new_user.save

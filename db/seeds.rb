@@ -6,12 +6,15 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+require 'bcrypt'
+
 #Create 5 dog walkers
 5.times do |i|
 	if i == 0
 		next
 	end
-	User.create(email: "test-walker#{i}@test.com", phone: "8053381903", user_type: "walker", password: "password", address: "601 Montgomery st, san francisco, CA", first_name: "Test#{i}", last_name: "User", availability: "Always", zipcode: "94134")
+	new_password = BCrypt::Password.create("password#{i}")
+	User.create(email: "test-walker#{i}@test.com", phone: "8053381903", user_type: "walker", password: new_password, address: "#{i}01 Montgomery st, san francisco, CA", first_name: "Test#{i}", last_name: "User", availability: "Always", zipcode: "94134")
 end
 
 #Create 5 clients
@@ -19,7 +22,8 @@ end
 	if i == 0
 		next
 	end
-	User.create(email: "test-client#{i}@test.com", phone: "8053381903", user_type: "client", password: "password", address: "601 Montgomery st, san francisco, CA", first_name: "Test#{i}", last_name: "User", availability: "Always", zipcode: "94134")
+	new_password2 = BCrypt::Password.create("password#{i}")
+	User.create(email: "test-client#{i}@test.com", phone: "8053381903", user_type: "client", password: new_password2, address: "#{i}01 Montgomery st, san francisco, CA", first_name: "Test#{i}", last_name: "User", availability: "Always", zipcode: "94134")
 end
 
 #Add 5 walkers
