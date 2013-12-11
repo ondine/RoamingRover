@@ -1,7 +1,6 @@
 require 'bcrypt'
 
 class SignupController < ApplicationController
-	include BCrypt
 
 	def select
 		#Select which signup page to show based on type

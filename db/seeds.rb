@@ -9,7 +9,7 @@
 require 'bcrypt'
 
 #Create 5 dog walkers
-5.times do |i|
+6.times do |i|
 	if i == 0
 		next
 	end
@@ -18,7 +18,7 @@ require 'bcrypt'
 end
 
 #Create 5 clients
-5.times do |i|
+6.times do |i|
 	if i == 0
 		next
 	end
@@ -27,7 +27,7 @@ end
 end
 
 #Add 5 walkers
-5.times do |i|
+6.times do |i|
 	if i == 0
 		next
 	end
@@ -35,7 +35,7 @@ end
 end
 
 #Add 5 clients
-5.times do |i|
+6.times do |i|
 	if i == 0
 		next
 	end
@@ -43,7 +43,7 @@ end
 end
 
 #Add 5 activities
-5.times do |i|
+6.times do |i|
 	if i == 0
 		next
 	end

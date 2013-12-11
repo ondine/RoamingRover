@@ -1,7 +1,6 @@
 require 'bcrypt'
 
 class LoginController < ApplicationController
-	include BCrypt
 
 	def read
 		render 'login'

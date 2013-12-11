@@ -72,6 +72,9 @@ $(document).ready(function() {
 					infowindow.open(map, marker);
 					$(".dashboard-modbox").css("background-color", "#FFF");
 					$("#appointment" + locations[i][0]).css("background-color", "#dde7ff");
+					$(".dog-appt").animate({
+						scrollTop: $("#appointment" + locations[i][0]).offset().top
+					}, 500);
 				}
 				})(marker, i));
 			}
