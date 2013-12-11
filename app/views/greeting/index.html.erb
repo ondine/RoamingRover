@@ -6,50 +6,60 @@
   <link rel="stylesheet" href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css"></link>
 
   <style type="text/css">
-    .masthead {
-	  text-align: center;	
+	.row-white .col-md-4,
+	.row-white .col-md-6,
+	.row-white .col-md-8 {
+	  background-color: #ffffff;
+	  border: 0px;
+	  padding: -10px;	
+	}
+	.row-social .col-md-4 {
+	  background-color: #ffffff;	
+	  border: 0px;
+	  padding-top: 0px;
+	  padding-bottom: 0px;
+	}
+	.socialbutton {
+	  	padding-left: 15px;
+		padding-right: 15px;
 	}
     div.jumbotron {
       position: relative;
-	  margin: 60px 0;
-	  text-align: center;
+      margin: 60px 0;
+      text-align: center;
       background: url("http://i.stack.imgur.com/daU8B.jpg");
-	 }
+	  padding-bottom: 5px;
+     }
      body {
-	  padding-top: 20px;
-	  padding-bottom: 40px;	 
-	 }
-	 .container-narrow {
-	   margin: 0 auto;
-	   max-width: 1000px; 
-	 }
-	 .container-narrow > hr {
-	   margin: 30px 0; 
-	 }
-	 .jumbotron h1 {
-	   font-size: 72px;
-	   line-height: 1; 
-	 }
-	 .jumbotron .btn {
-	   font-size: 21px;
-	   padding: 14px 24px; 
-	 }
-	 .marketing {
-	   margin: 60px 0; 
-	 }
-	 .marketing p + h4 {
-	   margin-top: 28px; 
-	 }
+          padding-top: 0px;
+          padding-bottom: 0px;         
+         }
+         .container-narrow {
+           margin: 0 auto;
+           max-width: 1000px; 
+         }
+         .container-narrow > hr {
+           margin: 30px 0; 
+         }
+         .jumbotron h1 {
+           font-size: 72px;
+           line-height: 1; 
+         }
+         .jumbotron .btn {
+           font-size: 21px;
+           padding: 14px 24px; 
+         }
   </style>
-  <link rel="stylesheet" href="http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css"></link>
+  <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css"></link>
+  <link rel="stylesheet" href="http://getbootstrap.com/examples/grid/grid.css"></link>
 </head>
 <body>
 <div class="container">
-<div class="row-fluid">
-  <div class="span4">
+<div class="row-white">
+  <div class="col-md-8">
   <h3>Roaming Rover</h3>
-  </div>
-  <div class="span3 offset5">
+  </div> <!-- col-md-8 -->
+  <div class="col-md-4">
     <div id="mainNav"
       <ul class="nav nav-pills pulls right">
         <li class="active">
@@ -62,13 +72,23 @@
         <a href="#contact">Contact</a>
         </li>
       </ul>
-     </div>
-  </div> <!-- span3 offset5 -->
-  <div class="span3 offset5">
-  <p>facebook</p>
-  </div>
-  </div>
-</div>
+     </div> <!-- mainNav -->
+  </div> <!-- col-md-4 -->
+  </div> <!-- row-white -->
+  <div class="row-social">
+    <div class="col-md-4 col-md-offset4">
+      <a href="#www.facebook.com/RoamingRover">
+        <img src="http://las.arts.ubc.ca/files/2010/08/facebook-button.jpg" alt="Facebook">
+      </a> 
+      <a href="#www.twitter.com/RoamingRover">
+        <img src="http://las.arts.ubc.ca/files/2010/08/twitter-button.jpg" alt="Twitter">
+      </a>  
+      <a href="#www.rss.com/RoamingRover">
+        <img src="http://las.arts.ubc.ca/files/2011/04/rss-feed-icon.jpg" alt="RSS">
+      </a>
+    </div>
+  </div> <!-- row-white -->
+</div> <!-- container -->
 <div class="container">
 <hr></hr>
   <div class="jumbotron">
@@ -76,20 +96,19 @@
       <h2>Exercise for dogs!</h2>
       <p>Finding a dog walker has never been easier!</p>
       <p>
-        <!-- do something about this get started button -->
-        <a class="btn btn-primary btn-lg" data-target="#" data-toggle="#" role="button">Get walking!</a>
+        <a class="btn btn-primary btn-lg" role="button" href="<%= link_to "Get Walking!", signup_path %>"></a>
       </p>
     </div> <!-- container for jumbotron -->
   </div> <!-- jumbotron -->
   <hr></hr>
-  <div class="row-fluid marketing">
-    <div class="span6">
+  <div class="row-white">
+    <div class="col-md-6">
       <h4>Dog Walkers: Get jobs easier!</h4>
       <p>
       Are you all ready for this up in here? This is what happens when some tech people decide they like dogs and want somebody else to pick up their poo--that's right, now it's super easy for dog walkers to find dogs to walk. The breeds they want, the locations they want to walk around, and the rates that they want to be paid are all just a few clicks away.
       </p>
     </div>
-    <div class="span6">
+    <div class="col-md-6">
       <h4>Dog Lovers: Get that pooch in shape!</h4>
       <p>
       Hey, it's tough to find time in your busy life to take that adorable furry thing out for a walk. Sometimes it's too cold to go out, sometimes you just don't have the energy. That's what we do--Roaming Rover connects you with the the best dog walkers for your breed and in your area. They can be ready at a moments notice so your pooch never gets to be a couch potato again!
