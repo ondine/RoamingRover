@@ -47,6 +47,7 @@
          }
          .jumbotron .btn {
            font-size: 21px;
+	   font-color: #ffffff;
            padding: 14px 24px; 
          }
   </style>
@@ -96,10 +97,11 @@
       <h2>Exercise for dogs!</h2>
       <p>Finding a dog walker has never been easier!</p>
       <p>
-        <a class="btn btn-primary btn-lg" role="button" href="<%= link_to "Get Walking!", signup_path %>"></a>
+        <%= link_to "Get Walking!", signup_path(@signup), :class => "btn btn-primary btn-lg", :role => "button" %>
       </p>
     </div> <!-- container for jumbotron -->
   </div> <!-- jumbotron -->
+
   <hr></hr>
   <div class="row-white">
     <div class="col-md-6">
