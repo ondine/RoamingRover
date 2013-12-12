@@ -35,17 +35,11 @@ end
 end
 
 #Add 5 clients
-6.times do |i|
-	if i == 0
-		next
-	end
+for i in 6..10 do
 	Client.create(dogsize: "3", user_id: i)
 end
 
 #Add 5 activities
-6.times do |i|
-	if i == 0
-		next
-	end
+for i in 6..10 do
 	Activity.create(title: "This is a great title! #{i}", description: "This is a great description! #{i}", client_id: i, rate: "50 per day", date: "2013-12-21", time: "14:00", status: "pending")
 end

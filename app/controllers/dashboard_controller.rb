@@ -20,8 +20,8 @@ class DashboardController < ApplicationController
 		new_request.title = params[:request_title]
 		new_request.description = params[:request_description]
 		new_request.date = params[:request_date]
-		new_request.time = params[:request_time]
-		new_request.rate = params[:request_pay]
+		new_request.time = params[:request_time1] + params[:request_time2]
+		new_request.rate = params[:request_payment]
 		new_request.status = "pending"
 
 		#Save it
