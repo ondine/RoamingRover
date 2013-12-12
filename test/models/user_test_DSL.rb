@@ -3,15 +3,15 @@ require 'test_helper'
 describe User do
 
   def valid_params 
-    { name: "John Doe", email: "john@example.com" }
+    { client_id: "John Doe", email: "john@example.com" }
   end
 
-  it "is valid with valid params" do
+  it "is valid with valid params"
   user = User.new valid_params
 
   user.must_be :valid?, # Must create with valid params
 
-  it "is invalid without an email" do
+  it "is invalid without an email"
   # Delete email before user let is called
   user_params.delete :email
 

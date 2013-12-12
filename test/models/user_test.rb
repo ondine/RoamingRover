@@ -6,7 +6,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   def valid_params 
-    { name: "John Doe", email: "john@example.com" }
+    { first_name: "John Doe", email: "john@example.com" }
   end
 
   def test_valid
@@ -17,9 +17,8 @@ class UserTest < ActiveSupport::TestCase
   def test_invalid_without_email
     params = valid_params.clone
     params.delete :email
-    user = User.new params
-    
-    refute user.valid?, "Can't be valid without email"
+    user = User.new valid_params
+    assert user.valid?, "Can't be valid without email"
     assert user.errors[:email], "Missing error when without email"
   end
 end
