@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class WalkerBidsTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-end
+  def test_walkerbids_can_be_created_with_no_arguments
+	assert_instance_of WalkerBids, WalkerBids.new
+  end
