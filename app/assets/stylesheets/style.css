@@ -113,7 +113,7 @@ body {
 
 .signup-container {
 	width:90%;
-	max-width:515px;
+	max-width:700px;
 	background-color:#FFF;
 	margin-left:auto;
 	margin-right:auto;
@@ -147,7 +147,7 @@ body {
 }
 
 .signup-type-image img {
-	width:400px;
+	width:90%;
 	border-radius:5px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
@@ -162,7 +162,7 @@ body {
 }
 
 .signup-type-image img:hover {
-	width:450px;
+	width:95%;
 	cursor:pointer;
 }
 
