@@ -54,7 +54,14 @@
             <!--/Dashboard Header-->
             <!--Dashboard Appointments-->
             <div class="dashboard-appointments">
-                    <% proposal_bids = Array.new %>
+                
+                <% if @empty_dw == true then %>
+                <div class="txt-center dashboard-null-class">
+                    Nothing to show :(
+                </div>
+                <% end %>
+                
+                <% proposal_bids = Array.new %>
                 <% @dog_listings.each do |listing|
 
                     #Push bid id to proposal_bids array

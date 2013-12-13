@@ -92,6 +92,12 @@ body {
 	min-height:120px;
 }
 
+.dashboard-null-class {
+	color:#999;
+	font-size:2em;
+	margin-top:50px;
+}
+
 .cl-background {
 	background:url(/assets/cl-dashboard-background.jpg) no-repeat;
 	background-size:cover;
