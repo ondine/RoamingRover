@@ -71,8 +71,6 @@
 
                     #Set up our information for use downstream
 
-                    p listing.client_id
-                    p "Hey printing works"
                     given_size = Client.where(user_id: listing.client_id).first.dogsize
                     client_info = User.where(id: listing.client_id).first
 
