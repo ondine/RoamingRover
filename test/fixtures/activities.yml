@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  title: MyString
-  description: MyText
+  title: MyActivitiesString
+  description: MyActivitiesText
   client_id: 1
   rate: MyString
-  date: 2013-11-20
-  time: 2013-11-20 03:29:47
-  status: MyString
+  date: 2013-12-11
+  time: 2013-12-11 08:00:00
+  status: ActivitiesStringStatus
 
 two:
-  title: MyString
-  description: MyText
-  client_id: 1
+  title: MyActivitiesString
+  description: MyActivitiesText
+  client_id: 2
   rate: MyString
-  date: 2013-11-20
-  time: 2013-11-20 03:29:47
-  status: MyString
+  date: 2013-12-12
+  time: 2013-12-12 06:00:00
+  status: ActivitiesStringStatus
