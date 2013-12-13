@@ -26,7 +26,12 @@ class LoginController < ApplicationController
 			session[:phone_number] = auth_user.phone
 			session[:zip_code] = auth_user.zipcode
 			session[:login] = true
-			redirect_to '/dashboard/' + session[:zip_code].to_s
+			if session[:user_type] == 'walker'
+				redirect_to '/dashboard/' + session[:zip_code].to_s
+			elsif session[:user_type] == 'client'
+				redirect_to '/dashboard/'
+			end
+				
 		end
 	end
 

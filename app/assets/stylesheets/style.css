@@ -92,6 +92,11 @@ body {
 	min-height:120px;
 }
 
+.cl-background {
+	background:url(/assets/cl-dashboard-background.jpg) no-repeat;
+	background-size:cover;
+}
+
 /*Signup Page*/
 
 .signup-header {
