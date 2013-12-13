@@ -37,6 +37,11 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+# Setting the Minitest Dependency to 4.7
+group :test do
+  gem "minitest", "~> 4.7"
+end
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -1,7 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
+  first_name: Myfirst_nameUserString1
+  last_name: Mylast_nameUserString1
   email: MyString
   phone: 1
   user_type: MyString
@@ -10,9 +11,10 @@ one:
   profile_pic: MyString
 
 two:
-  name: MyString
+  first_name: Myfirst_nameUserString2
+  last_name: Mylast_nameUserString1
   email: MyString
-  phone: 1
+  phone: 2
   user_type: MyString
   password: MyString
   address: MyString
