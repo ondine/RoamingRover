@@ -14,7 +14,7 @@ require 'bcrypt'
 		next
 	end
 	new_password = BCrypt::Password.create("password#{i}")
-	User.create(email: "test-walker#{i}@test.com", phone: "8053381903", user_type: "walker", password: new_password, address: "#{i}01 Montgomery st, san francisco, CA", first_name: "Test#{i}", last_name: "User", availability: "Always", zipcode: "94134")
+	User.create(email: "test-walker#{i}@test.com", phone: "8053381903", user_type: "walker", password: new_password, address: "#{i}01 Montgomery st, san francisco, CA", first_name: "Test#{i}", last_name: "User", availability: "Always", zipcode: 94134)
 end
 
 #Create 5 clients
@@ -41,5 +41,5 @@ end
 
 #Add 5 activities
 for i in 6..10 do
-	Activity.create(title: "This is a great title! #{i}", description: "This is a great description! #{i}", client_id: i, rate: "50 per day", date: "2013-12-21", time: "14:00", status: "pending")
+	Activity.create(title: "This is a great title! #{i}", description: "This is a great description! #{i}", client_id: i, rate: "50 per day", date: "2013-12-21", time: "14:00", status: "pending", zipcode: "94134")
 end
