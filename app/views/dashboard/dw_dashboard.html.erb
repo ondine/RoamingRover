@@ -1,9 +1,9 @@
 <body>
 
 <nav class="navbar navbar-default">
-	<div class="navbar-header">
-    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main">
-        	<span class="sr-only">Toggle Navigation</span>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main">
+                <span class="sr-only">Toggle Navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -12,11 +12,11 @@
     </div>
     
     <div class="collapse navbar-collapse" id="navbar-main">
-    	<ul class="nav navbar-nav navbar-right">
-        	<li class="dropdown">
-            	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= session[:first_name] + " " + session[:last_name] %> <i class="fa fa-caret-down"></i></a>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= session[:first_name] + " " + session[:last_name] %> <i class="fa fa-caret-down"></i></a>
                 <ul class="dropdown-menu">
-                	<li><a href="/logout">Logout</a></li>
+                        <li><a href="/logout">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -24,7 +24,7 @@
 </nav>
 
 <div>
-	<div class="col-sm-6 dog-map" id="dw-map">
+        <div class="col-sm-6 dog-map" id="dw-map">
     </div>
     <div class="col-sm-6 mobile-top-head">
 
@@ -32,21 +32,21 @@
             Your proposal was successfully submitted!
         </div>
 
-    	<div class="slight-gray dog-appt">
-        	<!--Dashboard Header-->
+            <div class="slight-gray dog-appt">
+                <!--Dashboard Header-->
             <div class="row">
-            	<div class="col-sm-6">
-                	<div class="dashboard-header">
-                    	Requests In Your Area
+                    <div class="col-sm-6">
+                        <div class="dashboard-header">
+                            Requests In Your Area
                     </div>
                 </div>
                 <div class="col-sm-6">
-                	<div class="row">
-                    	<div class="col-sm-6 no-pad">
-                        	<input id="dw-zip" type="text" class="form-control" value="<%= params[:zip] %>" />
+                        <div class="row">
+                            <div class="col-sm-6 no-pad">
+                                <input id="dw-zip" type="text" class="form-control" value="<%= params[:zip] %>" />
                         </div>
                         <div class="col-sm-6">
-                        	<a id="change-zip" href="javascript: void(0);" class="btn btn-primary">Change</a>
+                                <a id="change-zip" href="javascript: void(0);" class="btn btn-primary">Change</a>
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
             <!--/Dashboard Header-->
             <!--Dashboard Appointments-->
             <div class="dashboard-appointments">
-            	<% proposal_bids = Array.new %>
+                    <% proposal_bids = Array.new %>
                 <% @dog_listings.each do |listing|
 
                     #Push bid id to proposal_bids array
@@ -80,27 +80,27 @@
 
                 <!--Dashboard Appointment-->
                 <div id="appointment<%= listing.client_id %>" class="dashboard-modbox">
-                	<div class="row">
-                    	<div class="col-sm-8">
-                        	<div class="dashboard-modbox-title">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="dashboard-modbox-title">
                                 <%= listing.title %>
                             </div>
                         </div>
                         <div class="col-sm-4 txt-right">
-                        	<small><%= listing.rate %></small>
+                                <small><%= listing.rate %></small>
                         </div>
                     </div>
                     <div class="dashboard-modbox-description">
-                    	<%= listing.title %>
+                            <%= listing.title %>
                     </div>
                     <div class="row margin-top-10">
-                    	<div class="col-sm-6">
-                        	<div>
-                            	<strong>Dog Size</strong>
+                            <div class="col-sm-6">
+                                <div>
+                                    <strong>Dog Size</strong>
                             </div>
                             <div class="margin-top-10">
-                            	<ul class="dog-sizes-list">
-                                	<li <%= if given_size == "1" then "class=active" end %>><img src="/assets/dogs/dog-icon.png" width="30px" /></li>
+                                    <ul class="dog-sizes-list">
+                                        <li <%= if given_size == "1" then "class=active" end %>><img src="/assets/dogs/dog-icon.png" width="30px" /></li>
                                     <li <%= if given_size == "2" then "class=active" end %>><img src="/assets/dogs/dog-icon.png" width="40px" /></li>
                                     <li <%= if given_size == "3" then "class=active" end %>><img src="/assets/dogs/dog-icon.png" width="50px" /></li>
                                     <li <%= if given_size == "4" then "class=active" end %>><img src="/assets/dogs/dog-icon.png" width="60px" /></li>
@@ -108,19 +108,19 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                        	<div>
-                            	<strong>Posted By</strong>
+                                <div>
+                                    <strong>Posted By</strong>
                             </div>
                             <div class="row margin-top-10">
-                            	<div class="col-sm-3">
-                                	<img src="/assets/avatar.png" class="img-responsive" />
+                                    <div class="col-sm-3">
+                                        <img src="/assets/avatar.png" class="img-responsive" />
                                 </div>
                                 <div class="col-sm-9">
-                                	<div>
-                                    	<strong><%= client_info.first_name %></strong>
+                                        <div>
+                                            <strong><%= client_info.first_name %></strong>
                                     </div>
                                     <div>
-                                    	<small>Requested on <%= (listing.created_at).to_formatted_s(:long_ordinal).in_time_zone("Pacific") %></small>
+                                            <small>Requested on <%= (listing.created_at).strftime("%B %d, %Y %-I:%M %p") %></small>
                                     </div>
                                 </div>
                             </div>
@@ -130,25 +130,25 @@
                 <!--/Dashboard Appointment-->
                 <!--Appointment Proposal-->
                 <div id="proposal<%= listing.client_id %>" class="dashboard-proposal-box">
-                	<div>
-                    	<strong>Submit Proposal</strong>
+                        <div>
+                            <strong>Submit Proposal</strong>
                     </div>
                     <div class="row margin-top-10">
-                    	<div class="col-sm-8">
-                        	<textarea name="proposal_description" class="form-control dashboard-proposal-textarea" placeholder="Use this area to tell your client a little about your abilities and experience."></textarea>
+                            <div class="col-sm-8">
+                                <textarea name="proposal_description" class="form-control dashboard-proposal-textarea" placeholder="Use this area to tell your client a little about your abilities and experience."></textarea>
                         </div>
                         <div class="col-sm-4">
-                        	<div class="mobile-top-head">
-                            	<input name="proposal_rate" type="text" class="form-control" placeholder="Rate Requested" />
+                                <div class="mobile-top-head">
+                                    <input name="proposal_rate" type="text" class="form-control" placeholder="Rate Requested" />
                             </div>
                             <div class="checkbox">
                                 <label>
-                                	<input name="proposal_share" type="checkbox">
-                                	Share phone number?
+                                        <input name="proposal_share" type="checkbox">
+                                        Share phone number?
                                 </label>
                             </div>
                             <div class="margin-top-10">
-                            	<button type="button" href="#" class="btn btn-primary dashboard-proposal-submit">Submit</button>
+                                    <button type="button" href="#" class="btn btn-primary dashboard-proposal-submit">Submit</button>
                             </div>
                         </div>
                     </div>
