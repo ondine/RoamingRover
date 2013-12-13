@@ -1,6 +1,6 @@
 RoamingRover::Application.routes.draw do
 
-  resources :activities, :greeting, :sigunup, :dashboard, :login, :application, :gmaps
+  resources :activities
 
   #Render homepage
   root 'greeting#index'
