@@ -22,6 +22,7 @@ class DashboardController < ApplicationController
 		new_request.date = params[:request_date]
 		new_request.time = params[:request_time1] + params[:request_time2]
 		new_request.rate = params[:request_payment]
+		new_request.zipcode = session[:zip_code]
 		new_request.status = "pending"
 
 		#Save it
@@ -35,7 +36,20 @@ class DashboardController < ApplicationController
 	def pull_dw_info
 		@dw_zip = User.where(email: session[:email_address]).first.zipcode
 
-		@dog_listings = Activity.all.order(created_at: :desc)
+		#Get min and max zipcodes allowed based on walker's zip code
+
+		min_zip = ((params[:zip].to_i / 100).floor)*100
+		max_zip = min_zip + 99
+
+		@dog_listings = Activity.where(zipcode: min_zip..max_zip).order(created_at: :desc)
+
+		#Set up empty variable for proper display of null class
+
+		if @dog_listings.empty?
+			@empty_dw = true
+		else
+			@empty_dw = false
+		end
 	end
 
 	def send_proposal

@@ -92,6 +92,12 @@ body {
 	min-height:120px;
 }
 
+.dashboard-null-class {
+	color:#999;
+	font-size:2em;
+	margin-top:50px;
+}
+
 .cl-background {
 	background:url(/assets/cl-dashboard-background.jpg) no-repeat;
 	background-size:cover;
@@ -107,7 +113,7 @@ body {
 
 .signup-container {
 	width:90%;
-	max-width:515px;
+	max-width:600px;
 	background-color:#FFF;
 	margin-left:auto;
 	margin-right:auto;
@@ -141,7 +147,7 @@ body {
 }
 
 .signup-type-image img {
-	width:400px;
+	width:90%;
 	border-radius:5px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
@@ -156,7 +162,7 @@ body {
 }
 
 .signup-type-image img:hover {
-	width:450px;
+	width:95%;
 	cursor:pointer;
 }
 
